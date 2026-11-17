@@ -1,0 +1,19 @@
+{
+  "name": "spyglass",
+  "version": "0.1.0",
+  "description": "agent-integrated mcp browser connector",
+  "type": "module",
+  "bin": {
+    "spyglass": "server.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "start:http": "node server.mjs --http",
+    "test": "node test/smoke.mjs"
+  },
+  "license": "MIT",
+  "keywords": ["mcp", "browser", "chromium", "chrome", "cdp", "agent", "automation"]
+}
