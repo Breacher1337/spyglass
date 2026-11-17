@@ -9,7 +9,7 @@
 /** Build the interactive-element snapshot. Returns a text tree string. */
 export function snapshotScript(maxElements = 400) {
   return `(() => {
-  const registry = (window.__vbbRegistry || (window.__vbbRegistry = new Map()));
+  const registry = (window.__sglRegistry || (window.__sglRegistry = new Map()));
   const MAX = ${Math.max(1, Math.floor(maxElements))};
   const lines = [];
   let n = 0;
@@ -132,7 +132,7 @@ export function readScript() {
 /** Look up a snapshot ref, scroll it into view, and return its center. */
 export function locateScript(ref) {
   return `(() => {
-  const el = window.__vbbRegistry && window.__vbbRegistry.get(${JSON.stringify(ref)});
+  const el = window.__sglRegistry && window.__sglRegistry.get(${JSON.stringify(ref)});
   if (!el) return { ok: false, error: 'Unknown ref "' + ${JSON.stringify(ref)} + '". Take a new browser_snapshot first.' };
   if (!el.isConnected) return { ok: false, error: 'That element is no longer part of the page (the page probably changed). Take a new browser_snapshot.' };
   try { el.scrollIntoView({ block: 'center', inline: 'center' }); } catch (e) {}
